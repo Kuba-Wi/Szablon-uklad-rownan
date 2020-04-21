@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <cassert>
+#include <cmath>
+#include "rozmiar.h"
+#include "LZespolona.hh"
 
 /*
       Klasa opisuje Wektor o rozmiarze ROZMIAR
@@ -12,12 +15,12 @@ template<typename Typ, int Rozmiar>
 class SWektor {
 
     Typ skladowe[Rozmiar];
+    //Typ operator *(const SWektor<Typ, Rozmiar> & drugi) const;
   public:
     Typ operator [](int i) const { assert(i < Rozmiar); return skladowe[i]; }      //zwraca wartość i-tej skladowej
     Typ & operator [](int i) { assert(i < Rozmiar); return skladowe[i]; }          //zwraca referencję do i-tej składowej
     SWektor<Typ, Rozmiar> operator -(const SWektor<Typ, Rozmiar> & drugi) const;                               //zwraca różnicę dwóch wektorów
-    //Typ operator *(const SWektor<Typ, Rozmiar> & drugi) const;                               //zwraca iloczyn dwóch wektorów
-    //Typ dlugosc() const;                                                      //zwraca długość wektora
+    double dlugosc() const;                                                      //zwraca długość wektora
 
     //Wektor operator +(const Wektor & drugi) const;
     SWektor<Typ, Rozmiar> operator *(Typ liczba) const;
@@ -55,6 +58,26 @@ SWektor<Typ, Rozmiar> SWektor<Typ, Rozmiar>::operator *(Typ liczba) const
         Wynik.skladowe[i] = skladowe[i] * liczba;
 
     return Wynik;
+}
+
+template<typename Typ, int Rozmiar>
+double SWektor<Typ, Rozmiar>::dlugosc() const
+{
+    double Wynik = 0;
+    for(int i = 0; i < Rozmiar; i++)
+        Wynik += skladowe[i] * skladowe[i];
+    
+    return sqrt(Wynik);
+}
+
+template<>
+double SWektor<LZespolona, ROZMIAR>::dlugosc() const
+{
+    double Wynik = 0;
+    for(int i = 0; i < ROZMIAR; i++)
+        Wynik += skladowe[i].Modul2();
+    
+    return sqrt(Wynik);
 }
 
 

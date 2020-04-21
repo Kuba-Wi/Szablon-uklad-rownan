@@ -115,21 +115,15 @@ LZespolona LZespolona::operator / (const LZespolona & Skl2) const    //finalne o
   return Wynik;
 }
 
-bool LZespolona::operator == (double liczba) const
-{
-  if(re == liczba && im == 0)
-    return 1;
-  return 0;
-}
-
+/*
 void LZespolona::operator = (double liczba)
 {
   re = liczba;
   im = 0;
-}
+}*/
 
 
 double fabs(const LZespolona & liczba)
 {
-  return liczba.Modul2();
+  return sqrt(liczba.Modul2());
 }

@@ -24,7 +24,6 @@ class  LZespolona {
     */
     LZespolona Sprzezenie() const;
 
-
     /* 
 -    Metoda realizuje dzielenie liczby zespolonej przez liczbę rzeczywistą
 -    Argumenty:
@@ -93,9 +92,7 @@ LZespolona operator * (double liczba) const;
 */
 LZespolona  operator / (const LZespolona & Skl2) const;
 
-bool operator == (double liczba) const;
-
-void operator = (double liczba);
+//void operator = (double liczba);
 
 };
 

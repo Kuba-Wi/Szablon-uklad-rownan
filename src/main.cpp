@@ -33,6 +33,8 @@ void uklad_zespolony() {
 
   cout << "Wektor błędu Ax-b: ";
   cout << blad << endl; 
+  cout << "Dlugosc wektora błędu |Ax-b|: ";
+  cout << blad.dlugosc() << endl;
 }
 
 void uklad_rzeczywisty() {
@@ -59,7 +61,9 @@ void uklad_rzeczywisty() {
 
   cout << "Wektor błędu Ax-b: ";
   cout << blad << endl;
-  
+  cout << "Dlugosc wektora błędu |Ax-b|: ";
+  cout << blad.dlugosc() << endl;
+
 }
 
 

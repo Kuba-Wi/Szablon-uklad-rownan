@@ -99,7 +99,7 @@ SWektor<Typ, Rozmiar> SMacierz<Typ, Rozmiar>::operator *(const SWektor<Typ, Rozm
     for(int w = 0; w < Rozmiar; w++)
     {
         for(int k = 0; k < Rozmiar; k++)
-            skl_pom =skl_pom + kolumny[k][w] * Wek[k];
+            skl_pom = skl_pom + kolumny[k][w] * Wek[k];
 
         pom[w] = skl_pom;
         skl_pom = 0;  
