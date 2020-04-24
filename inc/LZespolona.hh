@@ -92,7 +92,6 @@ LZespolona operator * (double liczba) const;
 */
 LZespolona  operator / (const LZespolona & Skl2) const;
 
-//void operator = (double liczba);
 
 };
 

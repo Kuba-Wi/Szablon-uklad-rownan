@@ -115,13 +115,6 @@ LZespolona LZespolona::operator / (const LZespolona & Skl2) const    //finalne o
   return Wynik;
 }
 
-/*
-void LZespolona::operator = (double liczba)
-{
-  re = liczba;
-  im = 0;
-}*/
-
 
 double fabs(const LZespolona & liczba)
 {

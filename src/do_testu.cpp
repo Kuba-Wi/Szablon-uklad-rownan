@@ -1,15 +1,9 @@
-#include <iostream>
-#include "SWektor.hh"
-#include "SMacierz.hh"
-#include "SUkladRownanLiniowych.hh"
-#include "LZespolona.hh"
-#include "rozmiar.h"
-
-
+#include "do_testu.hh"
 
 using namespace std;
-
-
+template class SWektor<LZespolona, ROZMIAR>;
+template class SWektor<double, ROZMIAR>;
+template double SWektor<LZespolona, ROZMIAR>::dlugosc() const;
 template<typename Typ, int Rozmiar>
 void uklad_rownan() {
 
@@ -40,17 +34,7 @@ void uklad_rownan() {
 
 }
 
-
-int main() {
-
-  char rodzaj_ukl;
-  cin >> rodzaj_ukl;
-  
-  if(rodzaj_ukl == 'r')
-    uklad_rownan<double, ROZMIAR>();
-  else if(rodzaj_ukl == 'z')
-    uklad_rownan<LZespolona, ROZMIAR>();
-  else
-    cout << "Zły identyfikator układu.\n";
-  
-}
+template void uklad_rownan<double, ROZMIAR>();
+template void uklad_rownan<LZespolona, ROZMIAR>();
+//template double SWektor<double, ROZMIAR>::dlugosc() const;
+//template double SWektor<LZespolona, ROZMIAR>::dlugosc() const;
