@@ -70,7 +70,7 @@ double SWektor<Typ, Rozmiar>::dlugosc() const
     return sqrt(Wynik);
 }
 
-template<>
+template<> inline
 double SWektor<LZespolona, ROZMIAR>::dlugosc() const
 {
     double Wynik = 0;

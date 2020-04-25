@@ -28,7 +28,7 @@ void uklad_rownan() {
 
   Wynik = UklRown.policz_wynik(); 
 
-  cout << "Rozwiązanie x = (x1, x2, x3):\n\n\t";
+  cout << "Rozwiązanie x = (x1, x2, x3, x4, x5):\n\n\t";
   cout << Wynik << endl;
 
   blad = A * Wynik - b;

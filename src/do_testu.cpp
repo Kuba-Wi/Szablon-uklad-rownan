@@ -1,9 +1,12 @@
 #include "do_testu.hh"
+#include "rozmiar.h"
+#include "LZespolona.hh"
+#include "SMacierz.hh"
+#include "SUkladRownanLiniowych.hh"
+#include "SWektor.hh"
 
 using namespace std;
-template class SWektor<LZespolona, ROZMIAR>;
-template class SWektor<double, ROZMIAR>;
-template double SWektor<LZespolona, ROZMIAR>::dlugosc() const;
+
 template<typename Typ, int Rozmiar>
 void uklad_rownan() {
 
@@ -36,5 +39,3 @@ void uklad_rownan() {
 
 template void uklad_rownan<double, ROZMIAR>();
 template void uklad_rownan<LZespolona, ROZMIAR>();
-//template double SWektor<double, ROZMIAR>::dlugosc() const;
-//template double SWektor<LZespolona, ROZMIAR>::dlugosc() const;
