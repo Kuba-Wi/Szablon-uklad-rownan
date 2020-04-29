@@ -7,26 +7,56 @@
 #include "SMacierz.hh"
 #include "SWektor.hh"
 
-/*
-      Klasa opisuje uklad równań złożony z macierzy kwadratowej
-      i wektora wyrazów wolnych
-      Pola:
-      A - Macierz kwadratowa współczynników
-      b - Wektor wyrazów wolnych
+/*!
+ * Szablon klasy modeluje pojęcie układu równań     
  */
 template<typename Typ, int Rozmiar>
 class SUkladRownanLiniowych {
   
-    SMacierz<Typ, Rozmiar> A;
-    SWektor<Typ, Rozmiar> b;
+    SMacierz<Typ, Rozmiar> A; /*! macierz współczynników */
+    SWektor<Typ, Rozmiar> b;  /*! wektor wyrazów wolnych */
   public:
-    SUkladRownanLiniowych() {}                             //domyślny konstruktor
-    SUkladRownanLiniowych(SMacierz<Typ, Rozmiar> & Mac, SWektor<Typ, Rozmiar> & Wek) { A = Mac; b = Wek; };    //konstruktor: wpisuje Mac do A oraz Wek do b
-    SWektor<Typ, Rozmiar> policz_wynik() const;                                //oblicza wektor wynikowy i zwraca go
+    SUkladRownanLiniowych() {} /*! konstruktor domyślny */
+    /*!
+     * Konstruktor
+     * Argumenty:
+     * Mac - macierz przypisywana do A
+     * Wek - wektor przypisywany do b
+     */
+    SUkladRownanLiniowych(SMacierz<Typ, Rozmiar> & Mac, SWektor<Typ, Rozmiar> & Wek) { A = Mac; b = Wek; };
+
+    /*!
+     * Metoda rozwiązuje układ równań.
+     * Argumenty:   Brak
+     * Zwraca:
+     * wektor - rozwiązanie układu równań
+     */
+    SWektor<Typ, Rozmiar> policz_wynik() const;
     
+    /*!
+     * Metoda pozwala ustawić wartość wektora b:
+     * Argumenty: Brak
+     * Zwraca: referencję do wektora b
+     */
     SWektor<Typ, Rozmiar> & setWek() { return b; }
+    /*!
+     * Metoda pozwala odczytać wartość wektora b:
+     * Argumenty: Brak
+     * Zwraca: wektor b
+     */
     SWektor<Typ, Rozmiar> getWek() const { return b; }
+
+    /*!
+     * Metoda pozwala ustawić wartość macierzy A:
+     * Argumenty: Brak
+     * Zwraca: referencję do macierzy A
+     */
     SMacierz<Typ, Rozmiar> & setMac() { return A; }
+    /*!
+     * Metoda pozwala odczytać wartość macierzy A:
+     * Argumenty: Brak
+     * Zwraca: macierz A
+     */
     SMacierz<Typ, Rozmiar> getMac() const { return A; }
 };
 
@@ -62,6 +92,15 @@ SWektor<Typ, Rozmiar> SUkladRownanLiniowych<Typ, Rozmiar>::policz_wynik() const
 }
 
 
+
+/*!
+ * Funkcja wczytuje układ równań:
+ * Argumenty:
+ * Strm - strumień wejściowy
+ * UklRown - wczytywany układ równań
+ * Zwraca:
+ * referencję do Strm
+ */
 template<typename Typ, int Rozmiar>
 std::istream& operator >> (std::istream &Strm, SUkladRownanLiniowych<Typ, Rozmiar> &UklRown)
 {
@@ -71,7 +110,14 @@ std::istream& operator >> (std::istream &Strm, SUkladRownanLiniowych<Typ, Rozmia
     return Strm;
 }
 
-
+/*!
+ * Funkcja wypisuje układ równań:
+ * Argumenty:
+ * Strm - strumień wyjściowy
+ * UklRown - wczytywany układ równań
+ * Zwraca:
+ * referencję do Strm
+ */
 template<typename Typ, int Rozmiar>
 std::ostream& operator << (std::ostream &Strm, const SUkladRownanLiniowych<Typ, Rozmiar> &UklRown)
 {
