@@ -125,8 +125,7 @@ Typ SMacierz<Typ, Rozmiar>::wyznacznik() const {
         for(int j = i+1; j < Rozmiar; j++) {             //kolejne kolumny od ktorych odejmujemy kolumne i
         
             iloraz = pom(i,j) / pom(i,i);                   
-            for(int k = 0; k < Rozmiar; k++)           //kolejne kolumny
-                pom(k,j) = pom(k, j) - pom(k,i)*iloraz;
+            pom.kolumny[j] = pom.kolumny[j] - pom.kolumny[i] * iloraz;
         }
     }
     wyznacznik = wyznacznik * parzystosc;
